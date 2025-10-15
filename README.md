@@ -102,11 +102,15 @@ FROM "data_pipeline_db"."processed_data"
 GROUP BY event_type;
 
 ```
+[!Pic](Athen.png)
+
 6. Visualize in QuickSight
 
 Connect QuickSight to Athena
 
 Build dashboards for user behavior, revenue, etc.
+
+[!Pic](Simple_Dashboard.png) 
 
 ### 🧰 Tools Used
 

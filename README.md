@@ -61,3 +61,68 @@ Downloads CSV from the raw bucket
 Cleans data (removes invalid rows, fills missing values)
 
 Uploads cleaned CSV to the processed bucket
+
+### 🧰 AWS Setup Steps
+1. Create S3 Buckets
+
+my-uniquebucket-raw-data
+
+my-uniquebucket-processed-data
+
+2. Create Lambda Function
+
+Runtime: Python
+
+Upload lambda_function.py
+
+Add S3 trigger for my-uniquebucket-raw-data
+
+3. Attach IAM Role
+
+Use a role with:
+
+S3 read/write
+
+CloudWatch logs
+
+4. Create AWS Glue Crawler
+
+Source: processed bucket
+
+Target database: data_pipeline_db - Will be created by glue 
+
+5. Query in Athena
+
+Example:
+
+```
+
+SELECT event_type, COUNT(*) AS events, SUM(amount) AS total_sales
+FROM "data_pipeline_db"."processed_data"
+GROUP BY event_type;
+
+```
+6. Visualize in QuickSight
+
+Connect QuickSight to Athena
+
+Build dashboards for user behavior, revenue, etc.
+
+### 🧰 Tools Used
+
+AWS Lambda
+
+Amazon S3
+
+AWS Glue
+
+Amazon Athena
+
+Amazon QuickSight
+
+Python (pandas, boto3)
+
+### Future Improvments
+1. Implementing Infrastructure as Code
+2. Instead on manually running Glue data crawler can automate using Lambda
+3. Add SNS notifications for data processing failures

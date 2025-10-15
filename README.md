@@ -39,7 +39,7 @@ S3 triggers the Lambda function.
 
 Lambda reads the file, filters out missing or invalid rows, and writes a cleaned version to:
 
-```my-datapipeline-processed-data/year=2025/month=10/day=14/ ```
+```      my-datapipeline-processed-data/year=2025/month=10/day=14/         ```
 
 
 AWS Glue Crawler runs and detects the schema.

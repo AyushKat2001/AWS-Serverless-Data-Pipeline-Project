@@ -33,7 +33,7 @@ Glue Crawler → Glue Catalog → Athena → QuickSight
 ### ⚙️ How It Works
 
 Upload raw CSV (e.g., events_sample.csv) to the raw S3 bucket.
-Example bucket: my-datapipeline-raw-data/
+Example bucket: my-uniquebucket-raw-data/
 
 S3 triggers the Lambda function.
 
@@ -41,7 +41,7 @@ Lambda reads the file, filters out missing or invalid rows, and writes a cleaned
 
 ```
 
-my-datapipeline-processed-data/year=2025/month=10/day=14/         
+my-uniquebucket-processed-data/year=2025/month=10/day=14/         
 
 ```
 

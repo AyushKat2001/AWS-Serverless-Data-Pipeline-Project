@@ -29,3 +29,32 @@ S3 (processed)
    │
    ▼
 Glue Crawler → Glue Catalog → Athena → QuickSight
+```
+### ⚙️ How It Works
+
+Upload raw CSV (e.g., events_sample.csv) to the raw S3 bucket.
+Example bucket: my-datapipeline-raw-data/
+
+S3 triggers the Lambda function.
+
+Lambda reads the file, filters out missing or invalid rows, and writes a cleaned version to:
+
+```my-datapipeline-processed-data/year=2025/month=10/day=14/ ```
+
+
+AWS Glue Crawler runs and detects the schema.
+
+Athena queries the processed data using SQL.
+
+QuickSight visualizes trends (e.g., total purchases, user activity).
+
+### 🧠 Lambda Function Overview
+Main Steps
+
+Triggered by S3 event
+
+Downloads CSV from the raw bucket
+
+Cleans data (removes invalid rows, fills missing values)
+
+Uploads cleaned CSV to the processed bucket

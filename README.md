@@ -16,6 +16,8 @@ This project demonstrates how to automatically process, clean, and analyze event
 
 ---
 
+![Pic](Architecture.png)
+
 ## 📊 Data Flow Diagram
 
 ```text
